@@ -1,0 +1,14 @@
+﻿<Window x:Class="Lightless.Components.InputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lightless.Components"
+        mc:Ignorable="d"
+        Title="InputDialog" Background="Black" Width="200" Height="95" >
+    <StackPanel>
+        <TextBlock Text="Enter name" />
+        <TextBox x:Name="ResponseTextBox" />
+        <Button Content="OK" Click="OKButton_Click" />
+    </StackPanel>
+</Window>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Lightless.LEDSurface"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lightless"
+                xmlns:Core="clr-namespace:Lightless"
+                xmlns:components="clr-namespace:Lightless.Components"
+                mc:Ignorable="d" 
+             Height="1080" Width="1920">
+    <UserControl.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary 
+                  Source="../Styles/LedSurface.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid
+        x:Name="theGrid"
+        MouseDown="Grid_MouseDown"
+        MouseUp="Grid_MouseUp"
+        MouseMove="Grid_MouseMove"
+        Background="Transparent"
+        >
+        <Canvas x:Name="Surface">
+            <ListBox x:Name="ItemsContainer" Width="1920" Height="1080" ItemsSource="{Binding Path=Leds}" Background="Transparent" SelectionMode="Multiple" ItemContainerStyle="{DynamicResource LedSurfaceItemStyle}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="components:PixelModel">
+                        <Grid >
+                            <Ellipse Width="13" Height="13" x:Name="EllipseComponent"  HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{Binding PixelData, Converter={StaticResource ColorToBrushConverter }}"/>
+                            <Image Source="../Images/led.png" HorizontalAlignment="Center" Width="15" Height="15" VerticalAlignment="Center"></Image>
+                            <Ellipse Width="15" Height="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" Visibility="{Binding Selected, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}"/>
+                            <Ellipse Width="17" Height="17"  HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="1" Visibility="{Binding Selected, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Canvas>
+        <Canvas>
+            <Rectangle
+                x:Name="selectionBox"
+                Visibility="Collapsed"
+                Fill="#333399FF"
+                Stroke="#3399FF"
+                StrokeThickness="1"
+                />
+        </Canvas>
+    </Grid>
+</UserControl>

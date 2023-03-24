@@ -1,0 +1,9 @@
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\bin\Debug\Streaming.exe.config
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\bin\Debug\Streaming.exe
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\bin\Debug\Streaming.pdb
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\bin\Debug\Bass.Net.dll
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\bin\Debug\Bass.Net.xml
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\obj\Debug\Sample.Streaming.resources
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\obj\Debug\Streaming.csproj.GenerateResource.Cache
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\obj\Debug\Streaming.exe
+d:\Projects\Lightless3\bass\Samples\CS\Streaming\obj\Debug\Streaming.pdb

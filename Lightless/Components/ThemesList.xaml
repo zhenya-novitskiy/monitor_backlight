@@ -1,0 +1,247 @@
+﻿<UserControl x:Class="Lightless.ThemesList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lightless.Components"
+             mc:Ignorable="d" 
+             Height="345" Width="250" >
+    <UserControl.Resources>
+
+        <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border CornerRadius="3" Width="6" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="#484a4b"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="VerticalScrollBar"   TargetType="{x:Type ScrollBar}">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.00001*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.RowSpan="3" CornerRadius="4" Width="8" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="#101213"/>
+                <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="1,0,1,0" Background="Transparent" BorderBrush="Transparent" />
+                    </Track.Thumb>
+                </Track>
+            </Grid>
+        </ControlTemplate>
+
+
+
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Style.Triggers>
+                <Trigger Property="Orientation"  Value="Vertical">
+                    <Setter Property="Width" Value="8"/>
+                    <Setter Property="Height" Value="Auto" />
+                    <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="FavsScrollViewer" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="308"/>
+                                <ColumnDefinition  MinWidth="8"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <ScrollContentPresenter Width="308" HorizontalAlignment="Left" Grid.Column="0"/>
+
+                            <ScrollBar Margin="300,0,0,0"   Name="PART_VerticalScrollBar"
+                                    Value="{TemplateBinding VerticalOffset}"
+                                    Maximum="{TemplateBinding ScrollableHeight}"
+                                    ViewportSize="{TemplateBinding ViewportHeight}"
+                                    Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                            <ScrollBar Name="PART_HorizontalScrollBar"
+                                    Orientation="Horizontal"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Value="{TemplateBinding HorizontalOffset}"
+                                    Maximum="{TemplateBinding ScrollableWidth}"
+                                    ViewportSize="{TemplateBinding ViewportWidth}"
+                                    Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Color x:Key="DisabledControlLightColor">#FFE8EDF9</Color>
+
+
+        <Color x:Key="ControlLightColor">Transparent</Color>
+        <Color x:Key="ControlMediumColor">#FF7381F9</Color>
+
+
+
+
+        <Color x:Key="DisabledBorderLightColor">#FFAAAAAA</Color>
+
+        <Style x:Key="ListBox" TargetType="ListBox">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="MinHeight" Value="95" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Name="Border" BorderBrush="{x:Null}">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Lightless;component/Images/playlistBG.png" />
+                            </Border.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="2"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <ScrollViewer  Grid.Row="1" Style="{StaticResource FavsScrollViewer}" Focusable="false">
+                                    <StackPanel   IsItemsHost="True" >
+                                    </StackPanel>
+                                </ScrollViewer>
+
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="{StaticResource DisabledControlLightColor}" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="Border" Property="BorderBrush">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="{DynamicResource DisabledBorderLightColor}" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="ThemeItemStyle"
+       TargetType="ListBoxItem">
+            <Setter Property="SnapsToDevicePixels"
+          Value="true" />
+            <Setter Property="OverridesDefaultStyle"
+          Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Name="ControlTemplateListBoxItem" TargetType="ListBoxItem">
+                        <Border x:Name="Border" Padding="0" SnapsToDevicePixels="true" Background="Transparent">
+                            <Grid  Margin="10,0,0,0" x:Name="TabItemContentPresenter">
+                                <Rectangle Width="305"  Opacity="0" Height="21" x:Name="Light" Fill="#367d75" Margin="-10,0,0,0" HorizontalAlignment="Left">
+                                    <Rectangle.OpacityMask>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                            <GradientStop Offset="0" Color="#FFFFFFFF"></GradientStop>
+                                            <GradientStop Offset="0.03" Color="#66FFFFFF"></GradientStop>
+                                            <GradientStop Offset="0.1" Color="#44FFFFFF"></GradientStop>
+                                            <GradientStop Offset="0.26" Color="#22FFFFFF"></GradientStop>
+                                            <GradientStop Offset="0.74" Color="#22FFFFFF"></GradientStop>
+                                            <GradientStop Offset="0.9" Color="#44FFFFFF"></GradientStop>
+                                            <GradientStop Offset="0.97" Color="#66FFFFFF"></GradientStop>
+                                            <GradientStop Offset="1" Color="#FFFFFFFF"></GradientStop>
+                                        </LinearGradientBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <Grid>
+                                    <Grid.RenderTransform>
+                                        <TranslateTransform x:Name="TranslateIcon" X="-26"></TranslateTransform>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid>
+                                    <Grid.RenderTransform>
+                                        <TranslateTransform x:Name="TranslateIcon2" X="287"></TranslateTransform>
+                                    </Grid.RenderTransform>
+                                </Grid>
+                                <Grid>
+                                    <Grid.RenderTransform>
+                                        <TranslateTransform x:Name="TranslateBody" X="0"></TranslateTransform>
+                                    </Grid.RenderTransform>
+                                    <ContentPresenter Focusable="False" x:Name="Presenter"  Opacity="0.5" MinHeight="23">
+                                        <ContentPresenter.RenderTransform>
+                                            <ScaleTransform x:Name="ScaleTransf" ScaleX="1" ScaleY="1"></ScaleTransform>
+                                        </ContentPresenter.RenderTransform>
+                                        <ContentPresenter.Triggers>
+
+                                            <EventTrigger RoutedEvent="Mouse.MouseEnter" >
+                                                <EventTrigger.Actions>
+
+                                                    <BeginStoryboard>
+                                                        <Storyboard >
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger.Actions>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="Mouse.MouseLeave" >
+                                                <EventTrigger.Actions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard >
+                                                           </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger.Actions>
+                                            </EventTrigger>
+                                        </ContentPresenter.Triggers>
+                                    </ContentPresenter>
+                                </Grid>
+                                <!--<Rectangle Fill="#0f9795" Width="5" HorizontalAlignment="Left" Margin="0,0,0,0"></Rectangle>-->
+
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Opacity" TargetName="Light" Value="1"></Setter>
+                                <Setter Property="Opacity" TargetName="Presenter" Value="0.9"></Setter>
+                                <Setter Property="Background" TargetName="Border">
+                                    <Setter.Value>
+                                        <ImageBrush  Stretch="Fill" TileMode="FlipX"   ImageSource="/Lightless;component/Images/playlistSelectionBG.png"></ImageBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <ListBox x:Name="PlayListContainer" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Height="345" Width="250" Background="Transparent" Foreground="White" Style="{StaticResource ListBox}" >
+
+        </ListBox>
+    </Grid>
+</UserControl>

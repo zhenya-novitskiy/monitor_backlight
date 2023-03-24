@@ -1,0 +1,3 @@
+d:\Projects\Lightless3\bass\Samples\CS\SimpleAsio\bin\Debug\SimpleAsio.exe.config
+d:\Projects\Lightless3\bass\Samples\CS\SimpleAsio\obj\Debug\Sample.SimpleAsio.resources
+d:\Projects\Lightless3\bass\Samples\CS\SimpleAsio\obj\Debug\SimpleAsio.csproj.GenerateResource.Cache

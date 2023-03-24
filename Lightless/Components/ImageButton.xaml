@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Lightless.Components.ImageButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lightless.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" Background="Transparent" d:DesignWidth="50">
+    <UserControl.Resources>
+        <Storyboard x:Key="MouseEnter">
+
+            <DoubleAnimation Storyboard.TargetName="buttonImage2" Storyboard.TargetProperty="Opacity"  To="1"  Duration="0:0:0.20" />
+        </Storyboard>
+        <Storyboard x:Key="MouseLeave">
+
+            <DoubleAnimation Storyboard.TargetName="buttonImage2" Storyboard.TargetProperty="Opacity"  To="0"  Duration="0:0:0.20" />
+        </Storyboard>
+    </UserControl.Resources>
+    <Canvas Background="Transparent">
+        <Image Height="20" Name="buttonImage1" Stretch="Uniform" Width="50" StretchDirection="Both" HorizontalAlignment="Stretch" IsManipulationEnabled="False" RenderOptions.BitmapScalingMode="Fant" MouseEnter="buttonImage_MouseEnter" MouseLeave="buttonImage_MouseLeave" />
+        <Image Height="20" Name="buttonImage2" Opacity="0" Stretch="Uniform" Width="50" StretchDirection="Both" HorizontalAlignment="Stretch" IsManipulationEnabled="False" RenderOptions.BitmapScalingMode="Fant" MouseEnter="buttonImage_MouseEnter" MouseLeave="buttonImage_MouseLeave" />
+    </Canvas>
+</UserControl>

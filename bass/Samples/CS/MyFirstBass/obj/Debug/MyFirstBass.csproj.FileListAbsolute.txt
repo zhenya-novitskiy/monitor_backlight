@@ -1,0 +1,8 @@
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\bin\Debug\MyFirstBass.exe.config
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\bin\Debug\MyFirstBass.exe
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\bin\Debug\MyFirstBass.pdb
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\bin\Debug\Bass.Net.dll
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\bin\Debug\Bass.Net.xml
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\obj\Debug\MyFirstBass.csprojResolveAssemblyReference.cache
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\obj\Debug\MyFirstBass.exe
+d:\Projects\Lightless3\bass\Samples\CS\MyFirstBass\obj\Debug\MyFirstBass.pdb

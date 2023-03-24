@@ -1,0 +1,9 @@
+d:\Projects\Lightless3\bass\Samples\CS\Simple\bin\Debug\Simple.exe.config
+d:\Projects\Lightless3\bass\Samples\CS\Simple\bin\Debug\Simple.exe
+d:\Projects\Lightless3\bass\Samples\CS\Simple\bin\Debug\Simple.pdb
+d:\Projects\Lightless3\bass\Samples\CS\Simple\bin\Debug\Bass.Net.dll
+d:\Projects\Lightless3\bass\Samples\CS\Simple\bin\Debug\Bass.Net.xml
+d:\Projects\Lightless3\bass\Samples\CS\Simple\obj\Debug\Sample.Simple.resources
+d:\Projects\Lightless3\bass\Samples\CS\Simple\obj\Debug\Simple.csproj.GenerateResource.Cache
+d:\Projects\Lightless3\bass\Samples\CS\Simple\obj\Debug\Simple.exe
+d:\Projects\Lightless3\bass\Samples\CS\Simple\obj\Debug\Simple.pdb

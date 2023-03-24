@@ -1,0 +1,10 @@
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\bin\Debug\SimpleMix.exe.config
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\bin\Debug\SimpleMix.exe
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\bin\Debug\SimpleMix.pdb
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\bin\Debug\Bass.Net.dll
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\bin\Debug\Bass.Net.xml
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\obj\Debug\Sample.Properties.Resources.resources
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\obj\Debug\Sample.SimpleMix.resources
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\obj\Debug\SimpleMix.csproj.GenerateResource.Cache
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\obj\Debug\SimpleMix.exe
+d:\Projects\Lightless3\bass\Samples\CS\SimpleMix\obj\Debug\SimpleMix.pdb
